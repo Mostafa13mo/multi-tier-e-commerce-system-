@@ -1,0 +1,42 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: frontend-config
+data:
+  index.html: |
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <title>E-Commerce Frontend</title>
+        <style>
+            body { font-family: Arial, sans-serif; margin: 50px; }
+            .service-box { background: #f0f0f0; padding: 20px; margin: 10px; border-radius: 5px; }
+            button { padding: 10px 20px; margin: 5px; background: #007cba; color: white; border: none; border-radius: 3px; cursor: pointer; }
+            .result { margin-top: 10px; padding: 10px; background: #f9f9f9; border-radius: 3px; }
+        </style>
+    </head>
+    <body>
+        <h1>🛒 E-Commerce System</h1>
+        <div class="service-box">
+            <h3>✅ Frontend is Working!</h3>
+            <p>This is the E-Commerce Frontend Service</p>
+            <p>Service Communication Architecture:</p>
+            <ul>
+                <li>Frontend (NodePort) → Product Service (ClusterIP)</li>
+                <li>Frontend (NodePort) → Order Service (ClusterIP)</li>
+                <li>Product Service → Database (ClusterIP)</li>
+                <li>Order Service → Database + Product Service</li>
+            </ul>
+        </div>
+        
+        <div class="service-box">
+            <h3>Network Test Results:</h3>
+            <div class="result">
+                <strong>✅ Frontend Service:</strong> Accessible via NodePort 30080<br>
+                <strong>🔗 Product Service:</strong> Available at product-service:80<br>
+                <strong>🔗 Order Service:</strong> Available at order-service:80<br>
+                <strong>🔒 Database:</strong> Only accessible by Product/Order services
+            </div>
+        </div>
+    </body>
+    </html>
