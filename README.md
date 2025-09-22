@@ -1,4 +1,9 @@
+Build a **multi-tier e-commerce system** inside Kubernetes with **ClusterIP** and **NodePort** services.  
 
+- **Database (MySQL / MongoDB)** – internal only.  
+- **Product Service (backend)** – ClusterIP, talks to DB.  
+- **Order Service (backend)** – ClusterIP, talks to DB + Product Service.  
+- **Frontend (Nginx or React app)** – NodePort, talks to Product + Order services.  
 Requirements for Each Component
 
 ### 1. Database
